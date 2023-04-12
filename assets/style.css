@@ -2,6 +2,7 @@
 
 :root {
     --color-main: #4b33a8;
+    --color-main-light: #785ce9;
     --color-white: #ececec;
     --color-gray: #e2e2e2;
     --color-red: #961818;
@@ -14,10 +15,11 @@
     font-family: "Rubik", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
+/* *esto lo dejo comentado para probar el efecto de no ponerlo */
+/* h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
     margin: 0;
     padding: 0;
-}
+} */
 
 ul {
     list-style-type: none;
@@ -25,4 +27,110 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--color-main);
+}
+
+aside {
+    padding: 2rem;
+    color: var(--color-white);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.boton-menu {
+    background-color: transparent;
+    border: none;
+    color: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+}
+
+/* queda por ver porque no funciona */
+.bi-hand-index-thumb-fill,
+.bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+
+.texto-footer {
+    color: var(--color-main-light);
+    font-size: 0.85rem;
+}
+
+main {
+    background-color: var(--color-white);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.titulo-principal {
+    color: var(--color-main);
+    margin-bottom: 2rem;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.producto-imagen {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.producto-detalles {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.producto-titulo {
+    font-size: 1rem;
+}
+
+.producto-agregar {
+    border: 0;
+    background-color: var(--color-white);
+    color: var(--color-main);
+    padding: 0.4rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 2px solid var(--color-white);
+    transition: background-color 0.2s, color .2s;
+}
+
+.producto-agregar:hover {
+    background-color: var(--color-main);
+    color: var(--color-white);
 }
