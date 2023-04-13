@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-commerce Carpi</title>
+    <title>Tienda Shop e-commerce</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -16,10 +16,10 @@
             </header>
             <nav>
                 <ul class="menu">
-                    <li><button class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button></li>
-                    <li><button class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Abrigos</button></li>
-                    <li><button class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Camisetas</button></li>
-                    <li><button class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button></li>
+                    <li><button id="id-todos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button></li>
+                    <li><button id="id-abrigos" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Abrigos</button></li>
+                    <li><button id="id-camisetas" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Camisetas</button></li>
+                    <li><button id="id-pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button></li>
                     <li><a class="boton-menu boton-carrito" href="./carrito.html"><i class="bi bi-cart-fill"></i> Carrito <span class="numerito">0</span></a></li>
                 </ul>
             </nav>
@@ -29,43 +29,11 @@
         </aside>
         <main>
             <h2 class="titulo-principal">Todos los productos</h2>
-            <div class="contenedor-productos">
-                <div class="producto">
-                    <img class="producto-imagen" src="./assets/images/abrigos/01.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 01</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-imagen" src="./assets/images/abrigos/02.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 02</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-imagen" src="./assets/images/abrigos/03.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 03</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <div class="producto">
-                    <img class="producto-imagen" src="./assets/images/abrigos/04.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 04</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
+            <div id="id-contenedor-productos" class="contenedor-productos">
+                <!-- El contenido de este div se rellena desde JS -->
             </div>
         </main>
     </div>
-    
 
     <script src="./assets/main.js"></script>
 </body>
