@@ -187,8 +187,13 @@ const productos = [
 
 const contenedorProductos = document.querySelector("#id-contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
+const tituloPrincipal = document.querySelector("#id-titulo-principal");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
+
 
 function cargarProductos(productosElegidos) {
+
+    contenedorProductos.innerHTML = "";
 
     productosElegidos.forEach(producto => {
         const div = document.createElement("div");
@@ -203,6 +208,8 @@ function cargarProductos(productosElegidos) {
         `
         contenedorProductos.append(div);
     })
+
+    actualizarBotonesAgregar();
 }
 
 cargarProductos(productos);
@@ -216,7 +223,40 @@ botonesCategorias.forEach(boton => {
         // ahora agrego la clase active al que le haga click
         e.currentTarget.classList.add("active");
 
-        // llamo a la fc para cargar productos luego de filtrar
-        cargarProductos(productos);
+        // con "e.currentTarget.id" traigo el id desde el html
+        if(e.currentTarget.id != "todos") {
+
+            // *opción A para mostrar titulo de categoria(la del video)
+            // const tituloPorCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
+            // tituloPrincipal.innerText = tituloPorCategoria.categoria.nombre;
+
+            const productosFiltradosPorCat = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            // llamo a la fc para cargar productos luego de filtrar
+            cargarProductos(productosFiltradosPorCat);
+            
+            // *opción B para mostrar titulo de categoria(la mia)
+            tituloPrincipal.innerText = productosFiltradosPorCat[0].categoria.nombre;
+        } else {
+            tituloPrincipal.innerText = "Todos los productos";
+            cargarProductos(productos);    
+        }
+
     })
 })
+
+function actualizarBotonesAgregar() {
+    botonesAgregar = document.querySelectorAll(".producto-agregar");
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    })
+}
+
+const productosEnCarrito = [];
+
+function agregarAlCarrito(e) {
+    const idBoton = e.currentTarget.id;
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+
+    productosEnCarrito.push(productoAgregado);
+}
