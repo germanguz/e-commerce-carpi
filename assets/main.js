@@ -189,6 +189,7 @@ const contenedorProductos = document.querySelector("#id-contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#id-titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
+const numerito = document.querySelector("#id-numerito");
 
 
 function cargarProductos(productosElegidos) {
@@ -267,5 +268,10 @@ function agregarAlCarrito(e) {
         productosEnCarrito.push(productoAgregado);
     }
 
-    // console.log(productosEnCarrito);
+    actualizarNumerito();
+}
+
+function actualizarNumerito() {
+    let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    numerito.innerText = nuevoNumerito;
 }
