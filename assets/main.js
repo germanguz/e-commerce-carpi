@@ -254,10 +254,12 @@ function actualizarBotonesAgregar() {
 }
 
 let productosEnCarrito;
-const productosEnCarritoLocalStorage = JSON.parse(localStorage.getItem("productos-en-carrito"));
+
+let productosEnCarritoLocalStorage = localStorage.getItem("productos-en-carrito");
+// const productosEnCarritoLocalStorage = JSON.parse(localStorage.getItem("productos-en-carrito"));
 
 if(productosEnCarritoLocalStorage) {
-    productosEnCarrito = productosEnCarritoLocalStorage;
+    productosEnCarrito = JSON.parse(productosEnCarritoLocalStorage);
     actualizarNumerito();
 } else {
     productosEnCarrito = [];

@@ -1,4 +1,5 @@
-const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
+let productosEnCarrito = localStorage.getItem("productos-en-carrito");
+productosEnCarrito = JSON.parse(productosEnCarrito);
 
 const contenedorCarritoVacio = document.querySelector("#id-carrito-vacio");
 const contenedorCarritoProductos = document.querySelector("#id-carrito-productos");
@@ -7,7 +8,8 @@ const contenedorCarritoComprado = document.querySelector("#id-carrito-comprado")
 let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
 
 function cargarProductosCarrito() {
-    if (productosEnCarrito) {
+    if (productosEnCarrito && productosEnCarrito.length > 0) {
+
         contenedorCarritoVacio.classList.add("disabled");
         contenedorCarritoComprado.classList.add("disabled");
         contenedorCarritoProductos.classList.remove("disabled");
@@ -48,11 +50,13 @@ function cargarProductosCarrito() {
         contenedorCarritoProductos.classList.add("disabled");
         contenedorCarritoAcciones.classList.add("disabled");
     }
+    
+    actualizarBotonesEliminar();
 }
 
 cargarProductosCarrito();
 
-actualizarBotonesEliminar();
+
 
 function actualizarBotonesEliminar() {
     botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
@@ -60,4 +64,14 @@ function actualizarBotonesEliminar() {
     botonesEliminar.forEach(boton => {
         boton.addEventListener("click", eliminarDelCarrito);
     })
+}
+
+function eliminarDelCarrito(e) {
+    const idBoton = e.currentTarget.id;
+    const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+
+    productosEnCarrito.splice(index, 1);
+    cargarProductosCarrito();
+
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
