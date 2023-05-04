@@ -23,11 +23,15 @@ a {
     text-decoration: none;
 }
 
+/* ***** Contenedor ppal ***** */
+
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
     background-color: var(--color-main);
 }
+
+/* ***** aside - barra lateral izq ***** */
 
 aside {
     padding: 2rem;
@@ -119,6 +123,8 @@ aside {
     color: var(--color-main-light);
     font-size: 0.85rem;
 }
+
+/* ***** main ***** */
 
 main {
     background-color: var(--color-white);

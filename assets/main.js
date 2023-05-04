@@ -195,13 +195,14 @@ fetch("./assets/productos.json")
         cargarProductos(productos);
     })
 
+// Traigo lo que voy a necesitar del html
 const contenedorProductos = document.querySelector("#id-contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#id-titulo-principal");
 let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#id-numerito");
 
-
+// primera fc que se ejecuta para cargar todos los productos
 function cargarProductos(productosElegidos) {
 
     contenedorProductos.innerHTML = "";
@@ -228,13 +229,13 @@ cargarProductos(productos);
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
 
-        // saco el active a los botones
+        // saco el active a los botones, para que luego solo quede en el clickeado
         botonesCategorias.forEach(boton => boton.classList.remove("active"));
 
         // ahora agrego la clase active al que le haga click
         e.currentTarget.classList.add("active");
 
-        // con "e.currentTarget.id" traigo el id desde el html
+        // con "e.currentTarget.id" traigo el id del botón desde el html
         if (e.currentTarget.id != "todos") {
 
             // *opción A para mostrar titulo de categoria(la del video)
@@ -255,6 +256,7 @@ botonesCategorias.forEach(boton => {
     })
 })
 
+// para que botonesAgregar no quede como vacío, porque está definida antes de la fc de cargar productos. Ahora al ejecutarse actualizarBotonesAgregar dentro de cargar productos se actualiza botonesAgregar con el array de productos cargado
 function actualizarBotonesAgregar() {
     botonesAgregar = document.querySelectorAll(".producto-agregar");
 
@@ -300,6 +302,7 @@ function agregarAlCarrito(e) {
     }).showToast();
 
     const idBoton = e.currentTarget.id;
+    // busca el objeto a agregar con la coincidencia de id
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
     if (productosEnCarrito.some(producto => producto.id === idBoton)) {
