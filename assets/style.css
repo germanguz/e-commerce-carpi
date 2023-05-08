@@ -31,7 +31,7 @@ a {
     background-color: var(--color-main);
 }
 
-/* ***** aside - barra lateral izq ***** */
+/* ***** Aside - barra lateral izq ***** */
 
 aside {
     padding: 2rem;
@@ -102,7 +102,7 @@ aside {
     box-shadow: 0 -1rem 0 var(--color-white);
 }
 
-/* funcionó al ponerle a su padre (boton-menu) display flex */
+/* funcionó al ponerle a su padre, "boton-menu", display flex */
 .bi-hand-index-thumb-fill,
 .bi-hand-index-thumb {
     transform: rotateZ(90deg);
@@ -124,7 +124,7 @@ aside {
     font-size: 0.85rem;
 }
 
-/* ***** main ***** */
+/* ***** Main ***** */
 
 main {
     background-color: var(--color-white);
@@ -183,7 +183,7 @@ main {
     color: var(--color-white);
 }
 
-/* *CARRITO */
+/* ***** Pág de CARRITO ***** */
 
 .contenedor-carrito {
     display: flex;
@@ -217,6 +217,10 @@ main {
 .carrito-producto-imagen {
     width: 4rem;
     border-radius: 1rem;
+}
+
+.carrito-producto-titulo {
+    width: 118px;
 }
 
 .carrito-producto small {
@@ -271,20 +275,42 @@ main {
     border-bottom-right-radius: 1rem;
 }
 
+/* ***** para ocultar contenido ***** */
 .disabled {
     display: none;
 }
 
+/* ***** Para el uso responsive ***** */
 .header-mobile, .close-menu {
     display: none;
 }
 
-/* !Media Queries */
+/* !====== Media Queries ====== */
 
 @media only screen and (max-width: 850px) {
     
     .contenedor-productos {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .carrito-producto {
+        padding-right: 0.75rem;
+    }
+
+    .carrito-producto-titulo {
+        width: 105px;
+    }
+
+    .carrito-producto h3 {
+        font-size: 1rem;
+    }
+
+    .carrito-producto small {
+        font-size: 0.70rem;
+    }
+
+    .carrito-producto p {
+        font-size: 0.80rem;
     }
 }
 
@@ -349,7 +375,7 @@ main {
         color: var(--color-gray);
         border: none;
         font-size: 2rem;
-        cursor: pointer; /* aunque en celus no se ve */
+        cursor: pointer;
     }
 
     .close-menu {
@@ -366,7 +392,6 @@ main {
         padding: 0.5rem;
     }
 
-    /* saca el subtotal para mobile */
     .carrito-producto-subtotal {
         display: none;
     }
