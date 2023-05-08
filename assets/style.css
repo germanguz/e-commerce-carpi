@@ -194,7 +194,6 @@ main {
 .carrito-vacio,
 .carrito-comprado {
     color: var(--color-main);
-    /* display: none; */
 }
 
 .carrito-productos {
@@ -220,7 +219,7 @@ main {
 }
 
 .carrito-producto-titulo {
-    width: 118px;
+    min-width: 118px;
 }
 
 .carrito-producto small {
@@ -262,6 +261,7 @@ main {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     gap: 1rem;
+    align-items: center;
 }
 
 .carrito-acciones-comprar {
@@ -298,7 +298,7 @@ main {
     }
 
     .carrito-producto-titulo {
-        width: 105px;
+        min-width: 105px;
     }
 
     .carrito-producto h3 {
@@ -316,13 +316,6 @@ main {
 
 @media only screen and (max-width: 675px) {
     
-    .contenedor-productos {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    
     .wrapper {
         min-height: 100vh;
         display: flex;
@@ -335,7 +328,6 @@ main {
         background-color: var(--color-main);
         left: 0;
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75);
-        /* display: none; */
         transform: translateX(-100%);
         opacity: 0;
         visibility: hidden;
@@ -388,12 +380,8 @@ main {
     .carrito-producto {
         gap: 1rem;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
         padding: 0.5rem;
-    }
-
-    .carrito-producto-subtotal {
-        display: none;
     }
 
     .carrito-acciones {
@@ -402,9 +390,36 @@ main {
     }
 }
 
+@media only screen and (max-width: 550px) {
+    
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .carrito-producto {
+        justify-content: flex-end;
+        padding-right: 5%;
+    }
+
+    .carrito-producto-titulo {
+        margin-right: calc(60% - (4*5%));
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    
+    .carrito-producto-titulo {
+        margin-right: calc(50% - (4*5%));
+    }
+}
+
 @media only screen and (max-width: 400px) {
     
     .contenedor-productos {
         grid-template-columns: 1fr;
+    }
+
+    .carrito-producto-titulo {
+        margin-right: calc(30% - (4*5%));
     }
 }

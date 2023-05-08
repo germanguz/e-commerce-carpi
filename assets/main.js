@@ -268,7 +268,6 @@ function actualizarBotonesAgregar() {
 let productosEnCarrito;
 
 let productosEnCarritoLocalStorage = localStorage.getItem("productos-en-carrito");
-// const productosEnCarritoLocalStorage = JSON.parse(localStorage.getItem("productos-en-carrito"));
 
 if (productosEnCarritoLocalStorage) {
     productosEnCarrito = JSON.parse(productosEnCarritoLocalStorage);
@@ -279,6 +278,7 @@ if (productosEnCarritoLocalStorage) {
 
 function agregarAlCarrito(e) {
 
+    // uso de libreria toastify
     Toastify({
         text: "producto agregado",
         duration: 3000,

@@ -73,6 +73,7 @@ function actualizarBotonesEliminar() {
 
 function eliminarDelCarrito(e) {
 
+    // uso de libreria toastify
     Toastify({
         text: "producto eliminado",
         duration: 3000,
@@ -107,6 +108,7 @@ function eliminarDelCarrito(e) {
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito() {
 
+    // uso de libreria sweetalert2
     Swal.fire({
         title: '¿Estás seguro?',
         icon: 'question',
