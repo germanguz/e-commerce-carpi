@@ -1,5 +1,11 @@
-# e-commerce-carpi
-E-commerce siguiendo los pasos de un video de youtube
-
-E-commerce DESDE CERO con HTML, CSS, JS y localStorage 😱
-https://www.youtube.com/watch?v=RiB4mV3VnRY
+# E-commerce
+Siguiendo los pasos de un video de youtube para practicar JS.  
+Es responsivo, filtra por categorías, tiene una página de carrito para agregar o eliminar productos y simular compra.
+* HTML
+* CSS - flex box
+* Responsive
+* Sweetalert
+* Toastify
+* JavaScript
+* Local Storage
+* Fetch para simular carga de productos desde una base de datos, usando JSON
